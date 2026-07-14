@@ -1,0 +1,16 @@
+# Correlation matrix
+numeric_cols = ['Price_Numeric', 'Rating_Numeric']
+correlation = df[numeric_cols].corr()
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlation, annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Matrix')
+plt.savefig('correlation.png')
+plt.show()
+
+# Insights
+print("\n🔍 Key Insights:")
+if abs(correlation.loc['Price_Numeric', 'Rating_Numeric']) > 0.3:
+    print("✅ Price aur Rating ke beech relationship hai!")
+else:
+    print("ℹ️ Price aur Rating ka koi strong relationship nahi")
