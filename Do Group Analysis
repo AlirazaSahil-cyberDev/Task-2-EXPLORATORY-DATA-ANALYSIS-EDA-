@@ -1,0 +1,16 @@
+# Different groups compare karo
+
+# 1. Average price by rating
+avg_price_by_rating = df.groupby('Rating')['Price_Numeric'].mean()
+print("\nAverage Price by Rating:")
+print(avg_price_by_rating)
+
+# 2. Count by rating and availability
+summary = pd.crosstab(df['Rating'], df['Available'])
+print("\nRating vs Availability:")
+print(summary)
+
+# 3. Price statistics by rating
+stats = df.groupby('Rating')['Price_Numeric'].agg(['min', 'max', 'mean', 'count'])
+print("\nPrice Statistics by Rating:")
+print(stats)
