@@ -1,0 +1,23 @@
+# Do variables ka relationship dekho
+
+plt.figure(figsize=(15, 5))
+
+# 1. Price vs Rating
+plt.subplot(1, 3, 1)
+sns.boxplot(x='Rating', y='Price_Numeric', data=df)
+plt.title('Price by Rating')
+plt.xticks(rotation=45)
+
+# 2. Availability vs Price
+plt.subplot(1, 3, 2)
+sns.boxplot(x='Available', y='Price_Numeric', data=df)
+plt.title('Price by Availability')
+
+# 3. Rating distribution by Availability
+plt.subplot(1, 3, 3)
+pd.crosstab(df['Rating'], df['Available']).plot(kind='bar', stacked=True)
+plt.title('Rating vs Availability')
+
+plt.tight_layout()
+plt.savefig('bivariate_analysis.png')
+plt.show()
