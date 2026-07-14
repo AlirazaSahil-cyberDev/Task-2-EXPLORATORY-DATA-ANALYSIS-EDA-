@@ -1,4 +1,4 @@
-# Correlation matrix
+# Correlation matrices
 numeric_cols = ['Price_Numeric', 'Rating_Numeric']
 correlation = df[numeric_cols].corr()
 
